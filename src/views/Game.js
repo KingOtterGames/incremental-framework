@@ -2,6 +2,7 @@ import { useEffect, useReducer } from 'react'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
 import Format from 'framework/Format'
+import GeneralConfig from 'config/General'
 
 function Game() {
     const slot = localStorage.getItem('slot') || '0'
@@ -13,9 +14,9 @@ function Game() {
      */
     useEffect(() => {
         // Game Loop Functionality
-        const fps = 1 // Frames Per Second
+        const fps = GeneralConfig.loop.fps // Frames Per Second
         const fixedUpdateRate = 1 / fps // Math to calculate the actual FPS
-        const timeScale = 1 // Multiplier on delta time, used for speeding, slowing, and pausing mechanics
+        const timeScale = GeneralConfig.loop.timeScale // Multiplier on delta time, used for speeding, slowing, and pausing mechanics
         let frameId = 0
         let prevFrameTime = 0
         let accumulatedLagTime = 0
@@ -42,16 +43,16 @@ function Game() {
 
                 accumulatedLagTime += deltaTime
 
-                // Handle onUpdate Logic
-                // StateMachine.onUpdate(state, dispatch, deltaTime)
-                dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime * timeScale } })
-
                 // Handle onFixedUpdate Logic
                 while (accumulatedLagTime >= fixedUpdateRate) {
                     accumulatedLagTime -= fixedUpdateRate
                     // StateMachine.onFixedUpdate(state, dispatch, deltaTime)
                     dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime * timeScale } })
                 }
+
+                // Handle onUpdate Logic
+                // StateMachine.onUpdate(state, dispatch, deltaTime)
+                dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime * timeScale } })
 
                 // Set Frame Time
                 prevFrameTime = currentFrameTime

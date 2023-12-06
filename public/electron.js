@@ -26,8 +26,12 @@ app.commandLine.appendSwitch('disable-renderer-backgrounding')
 app.commandLine.appendSwitch('disable-audio-output')
 app.commandLine.appendSwitch('disable-background-timer-throttling')
 app.commandLine.appendSwitch('disable-accelerated-2d-canvas')
-app.commandLine.appendSwitch('disable-gpu-compositing')
-app.commandLine.appendSwitch('disable-gpu')
+
+/**
+ * Options to enable WORSE CASE for memory issues, BUT Steam Overlay will not show
+ */
+//app.commandLine.appendSwitch('disable-gpu-compositing')
+//app.commandLine.appendSwitch('disable-gpu')
 
 /**
  * Steam Initialization

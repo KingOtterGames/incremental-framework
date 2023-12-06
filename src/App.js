@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
-import Menu from 'views/Menu'
+// import Menu from 'views/Menu'
 import Game from 'views/Game'
 
 const App = () => {
