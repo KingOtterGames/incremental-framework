@@ -1,0 +1,57 @@
+{
+  "name": "incremental-framework",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "version": "0.1.5",
+  "private": true,
+  "description": "A game built on the incremental framework, built by King Otter Games.",
+  "author": "King Otter Games",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "electron-is-dev": "^2.0.0",
+    "lodash.clonedeep": "^4.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "steamworks.js": "^0.0.26",
+    "uuid": "^9.0.0"
+  },
+  "build": {
+    "appId": "com.incremental-framework.app",
+    "artifactName": "Incremental Framework ${version}.${ext}"
+  },
+  "scripts": {
+    "start": "concurrently -k \"set REACT_APP_DEV=true && npm run start:renderer\" \"npm run start:main\"",
+    "start:main": "wait-on tcp:3000 && electron .",
+    "start:renderer": "react-scripts start",
+    "clean": "rimraf ./build && rimraf ./dist",
+    "build": "react-scripts build",
+    "pack": "electron-builder --dir"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "electron": "^27.1.2",
+    "electron-builder": "^23.6.0",
+    "electron-devtools-installer": "^3.2.0",
+    "wait-on": "^7.2.0"
+  }
+}
