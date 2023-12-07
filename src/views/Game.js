@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from 'react'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
-import Format from 'framework/Format'
+import Formatter from 'utilities/Formatter'
 import GeneralConfig from 'config/General'
 
 function Game() {
@@ -142,7 +142,14 @@ function Game() {
             >
                 Click
             </button>
-            <p>{Format.decimal(state.player.gold)}</p>
+            <button
+                onClick={() => {
+                    console.log(state)
+                }}
+            >
+                State
+            </button>
+            <p>{Formatter.decimal(state.player.gold)}</p>
         </div>
     )
 }

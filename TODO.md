@@ -9,9 +9,14 @@
     -   Upgrades
     -   Currencies
     -   Items
+    -   Inventory System
     -   Looting
     -   Leveling
     -   Random Seed
+    -   Achievment System
+    -   Reward System
+    -   Quest System
+    -   Analytics System
 -   Basic Tab Navigation (Maybe just ant design again)
 -   Inspector tool for development? Or some fps display. Anything of that sort
 -   Organize the framework better

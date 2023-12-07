@@ -1,5 +1,5 @@
 import cloneDeep from 'lodash.clonedeep'
-import DefaultState from './DefaultState.json'
+import DefaultState from '__DefaultState__.json'
 
 const SAVE_KEY = 'save-'
 
