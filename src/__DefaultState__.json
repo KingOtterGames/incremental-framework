@@ -3,5 +3,6 @@
   "player": {
     "name": "player",
     "gold": 0
-  }
+  },
+  "upgrades": []
 }

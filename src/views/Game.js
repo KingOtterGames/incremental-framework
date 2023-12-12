@@ -1,8 +1,11 @@
 import { useEffect, useReducer } from 'react'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
-import Formatter from 'utilities/Formatter'
 import GeneralConfig from 'config/General'
+
+import Formatter from 'utilities/Formatter'
+import RandomSeed from 'utilities/RandomSeed'
+import UpgradesController from 'controllers/Upgrades'
 
 function Game() {
     const slot = localStorage.getItem('slot') || '0'
@@ -46,12 +49,10 @@ function Game() {
                 // Handle onFixedUpdate Logic
                 while (accumulatedLagTime >= fixedUpdateRate) {
                     accumulatedLagTime -= fixedUpdateRate
-                    // StateMachine.onFixedUpdate(state, dispatch, deltaTime)
                     dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime * timeScale } })
                 }
 
                 // Handle onUpdate Logic
-                // StateMachine.onUpdate(state, dispatch, deltaTime)
                 dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime * timeScale } })
 
                 // Set Frame Time
@@ -132,6 +133,17 @@ function Game() {
             window.removeEventListener('beforeunload', handler)
         }
     }, [state, slot])
+
+    /**
+     * Testing Functions
+     */
+    useEffect(() => {
+        // dispatch({ type: 'Upgrades.upgrade', payload: { name: 'Click Yield' } })
+
+        console.log(UpgradesController.helpers.getUpgrade(state, 'Click Yield'))
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <div>

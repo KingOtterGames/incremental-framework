@@ -16,10 +16,12 @@
     -   Achievment System
     -   Reward System
     -   Quest System
-    -   Analytics System
 -   Basic Tab Navigation (Maybe just ant design again)
 -   Inspector tool for development? Or some fps display. Anything of that sort
--   Organize the framework better
 -   Create configuration files for eassy editing
 -   Figure out how to import yaml files
 -   Do testing enabling GPU for the overlay?
+-   Example Component with all the basic systems
+-   Main Menu built
+
+https://ngsc.freddecgames.com/
