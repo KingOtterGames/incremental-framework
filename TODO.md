@@ -24,4 +24,6 @@
 -   Example Component with all the basic systems
 -   Main Menu built
 
+UI Inspirations
 https://ngsc.freddecgames.com/
+https://melvoridle.com/
