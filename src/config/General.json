@@ -2,5 +2,9 @@
     "loop": {
         "timeScale": 1,
         "fps": 1
+    },
+    "inactivityTimer": {
+        "enabled": false,
+        "minutes": 30
     }
 }

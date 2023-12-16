@@ -2,6 +2,7 @@ import { useEffect, useReducer } from 'react'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
 import GeneralConfig from 'config/General'
+import ManagerController from 'controllers/Manager'
 
 /**
  * DEMO: Delete these imports for a real project
@@ -17,6 +18,7 @@ function Game() {
      * Core Game Loop
      */
     useEffect(() => {
+        console.log(ManagerController.helpers.isDemo())
         // Game Loop Functionality
         const fps = GeneralConfig.loop.fps // Frames Per Second
         const fixedUpdateRate = 1 / fps // Math to calculate the actual FPS
@@ -111,6 +113,7 @@ function Game() {
      */
     useEffect(() => {
         let inactivityTime = function () {
+            console.log('i')
             let time
 
             window.onload = resetTimer
@@ -124,11 +127,11 @@ function Game() {
 
             function resetTimer() {
                 clearTimeout(time)
-                time = setTimeout(refreshPage, 60000 * 30)
+                time = setTimeout(refreshPage, 60000 * GeneralConfig.inactivityTimer.minutes)
             }
         }
 
-        inactivityTime()
+        if (GeneralConfig.inactivityTimer.enabled) inactivityTime()
     }, [])
 
     /**

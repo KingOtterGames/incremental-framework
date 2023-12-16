@@ -18,3 +18,9 @@
 -   Figure out how to import yaml files
 -   Example Component with all the basic systems
 -   Main Menu built
+
+Dev Menu
+
+-   FPS
+-   Click to Log State
+-   Is Demo Check
