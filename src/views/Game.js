@@ -3,9 +3,10 @@ import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
 import GeneralConfig from 'config/General'
 
-import Formatter from 'utilities/Formatter'
-import RandomSeed from 'utilities/RandomSeed'
-import UpgradesController from 'controllers/Upgrades'
+/**
+ * DEMO: Delete these imports for a real project
+ */
+import Clicker from 'demo/Clicker'
 
 function Game() {
     const slot = localStorage.getItem('slot') || '0'
@@ -24,6 +25,14 @@ function Game() {
         let prevFrameTime = 0
         let accumulatedLagTime = 0
 
+        // Handle Offline Progress
+        if (state.options.offlineProgress) {
+            const lastTick = state.lastTick ? new Date(state.lastTick) : new Date()
+            const now = new Date()
+            const ticksPassed = Math.floor(Math.abs(now.getTime() - lastTick.getTime()) / (fps * 1000))
+            dispatch({ type: 'OfflineProgress.calculate', payload: { ticksPassed } })
+        }
+
         // Handling Stop
         const stop = () => {
             cancelAnimationFrame(frameId)
@@ -35,6 +44,9 @@ function Game() {
         // Handling Ticks
         const tick = (currentFrameTime = 0) => {
             try {
+                // Set Last Tick
+                dispatch({ type: 'Manager.lastTick', payload: {} })
+
                 frameId = requestAnimationFrame(tick)
 
                 // Check and process player inputs
@@ -134,34 +146,9 @@ function Game() {
         }
     }, [state, slot])
 
-    /**
-     * Testing Functions
-     */
-    useEffect(() => {
-        // dispatch({ type: 'Upgrades.upgrade', payload: { name: 'Click Yield' } })
-
-        console.log(UpgradesController.helpers.getUpgrade(state, 'Click Yield'))
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
     return (
         <div>
-            <button
-                onClick={() => {
-                    dispatch({ type: 'Currency.action', payload: {} })
-                }}
-            >
-                Click
-            </button>
-            <button
-                onClick={() => {
-                    console.log(state)
-                }}
-            >
-                State
-            </button>
-            <p>{Formatter.decimal(state.player.gold)}</p>
+            <Clicker state={state} dispatch={dispatch} />
         </div>
     )
 }

@@ -1,9 +1,6 @@
 -   Add Ant Design Base
--   Update the Image Finder Script, so it can do folders
 -   Create a data Script to access data
 -   Look into Modding Support
--   Look into error handling
--   Look into encrypting saves
 -   Look into automated tests
 -   Built-in systems I want
     -   Upgrades
@@ -17,11 +14,7 @@
     -   Reward System
     -   Quest System
 -   Basic Tab Navigation (Maybe just ant design again)
--   Inspector tool for development? Or some fps display. Anything of that sort
--   Create configuration files for eassy editing
+-   Create configuration files for easy editing
 -   Figure out how to import yaml files
--   Do testing enabling GPU for the overlay?
 -   Example Component with all the basic systems
 -   Main Menu built
-
-https://ngsc.freddecgames.com/

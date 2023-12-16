@@ -18,15 +18,8 @@ const onFixedUpdate = (state, deltaTime) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const take = (state, payload) => {
-    const { currency, amount } = payload
-    state.player.currency[currency] -= amount
-    return state
-}
-
-const give = (state, payload) => {
-    const { currency, amount } = payload
-    state.player.currency[currency] += amount
+const lastTick = (state, payload) => {
+    state.lastTick = new Date()
     return state
 }
 
@@ -46,8 +39,7 @@ const BaseComponent = {
         onFixedUpdate,
     },
     actions: {
-        take,
-        give,
+        lastTick,
     },
     helpers: {
         helper,

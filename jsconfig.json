@@ -2,5 +2,5 @@
     "compilerOptions": {
       "baseUrl": "src"
     },
-    "include": ["src", "templates"]
+    "include": ["src", "templates", "src/controllers/.js"]
   }

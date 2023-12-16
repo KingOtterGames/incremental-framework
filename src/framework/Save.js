@@ -1,17 +1,19 @@
 import cloneDeep from 'lodash.clonedeep'
 import DefaultState from '__DefaultState__.json'
+import LZString from 'lz-string'
 
 const SAVE_KEY = 'save-'
 
 const load = (slot) => {
-    let LoadedState = JSON.parse(localStorage.getItem(SAVE_KEY + slot))
-    if (LoadedState) return cloneDeep(patch(version(LoadedState), cloneDeep(DefaultState)))
+    let data = localStorage.getItem(SAVE_KEY + slot)
+    if (data) {
+        return cloneDeep(patch(version(JSON.parse(decode(data))), cloneDeep(DefaultState)))
+    }
     return cloneDeep(DefaultState)
 }
 
 const save = (state, slot) => {
-    console.log(JSON.stringify(state))
-    localStorage.setItem(SAVE_KEY + slot, JSON.stringify(state))
+    localStorage.setItem(SAVE_KEY + slot, encode(JSON.stringify(state)))
     return cloneDeep(state)
 }
 
@@ -36,6 +38,14 @@ const patch = (oldJSON, newJSON) => {
         }
     }
     return oldJSON
+}
+
+const encode = (data) => {
+    return LZString.compress(data)
+}
+
+const decode = (data) => {
+    return LZString.decompress(data)
 }
 
 const version = (loadedState) => {

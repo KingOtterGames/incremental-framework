@@ -1,8 +1,14 @@
 {
   "version": 1,
+  "lastTick": null,
+  "options": {
+    "offlineProgress": true
+  },
   "player": {
     "name": "player",
-    "gold": 0
+    "currency": {
+      "gold": 0
+    }
   },
   "upgrades": []
 }

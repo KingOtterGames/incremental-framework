@@ -6,7 +6,7 @@ function importAll(r) {
     return images
 }
 
-const images = importAll(require.context('../../../assets/images', true))
+const images = importAll(require.context('content/images/', true))
 
 const get = (key) => {
     return images[key]

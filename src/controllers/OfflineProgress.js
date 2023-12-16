@@ -18,15 +18,9 @@ const onFixedUpdate = (state, deltaTime) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const take = (state, payload) => {
-    const { currency, amount } = payload
-    state.player.currency[currency] -= amount
-    return state
-}
-
-const give = (state, payload) => {
-    const { currency, amount } = payload
-    state.player.currency[currency] += amount
+const calculate = (state, payload) => {
+    const { ticksPassed } = payload
+    console.log('Offline Progress (based on FPS): ', ticksPassed)
     return state
 }
 
@@ -46,8 +40,7 @@ const BaseComponent = {
         onFixedUpdate,
     },
     actions: {
-        take,
-        give,
+        calculate,
     },
     helpers: {
         helper,

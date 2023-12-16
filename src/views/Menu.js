@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 
-function Game({ state, dispatch }) {
+function Menu({ state, dispatch }) {
     useEffect(() => {}, [])
 
     return <div></div>
 }
 
-export default Game
+export default Menu
