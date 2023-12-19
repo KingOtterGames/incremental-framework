@@ -1,10 +1,8 @@
 -   Add Ant Design Base
 -   Create a data Script to access data
--   Look into Modding Support
 -   Look into automated tests
+-   Disable holding enter on buttons
 -   Built-in systems I want
-    -   Upgrades
-    -   Currencies
     -   Items
     -   Inventory System
     -   Looting
@@ -16,6 +14,7 @@
 -   Figure out how to import yaml files
 -   Example Component with all the basic systems
 -   Main Menu built
+-   Figure out patch notes system
 
 Dev Menu
 

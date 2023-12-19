@@ -18,25 +18,17 @@ const onFixedUpdate = (state, deltaTime) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const upgrade = (state, { name }) => {
-    // Get Current Upgrade
-    let upgrade = getUpgrade(state, name)
+const add = (state, payload) => {
+    return state
+}
 
-    // If level 0, we need to add the upgrade to the save
-    if (upgrade.level === 0) {
-        state.player.upgrades.push({ name: name, level: 1 })
-    } else {
-        upgrade.level++
-    }
+const remove = (state, payload) => {
     return state
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Helpers (State cannot be modified)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const getUpgrade = (state, name) => {
-    return state.player.upgrades.find((upgrades) => upgrades.name === name) || { name, level: 0 }
-}
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Export of Controller (You'll need to route it out so you can utilize the functions in the dispatchers)
@@ -47,11 +39,10 @@ const BaseComponent = {
         onFixedUpdate,
     },
     actions: {
-        upgrade,
+        add,
+        remove,
     },
-    helpers: {
-        getUpgrade,
-    },
+    helpers: {},
 }
 
 export default BaseComponent

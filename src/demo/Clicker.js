@@ -8,7 +8,7 @@ function Clicker({ state, dispatch }) {
         <div>
             <button
                 onClick={() => {
-                    dispatch({ type: 'Currency.give', payload: { currency: 'gold', amount: 1 } })
+                    dispatch({ type: 'Currency.add', payload: { currency: 'gold', amount: 1 } })
                 }}
             >
                 Click

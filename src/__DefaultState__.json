@@ -14,7 +14,7 @@
     "name": "player",
     "currency": {
       "gold": 0
-    }
-  },
-  "upgrades": []
+    },
+    "upgrades": []
+  }
 }

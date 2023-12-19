@@ -19,15 +19,15 @@ const onFixedUpdate = (state, deltaTime) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const take = (state, payload) => {
+const add = (state, payload) => {
     const { currency, amount } = payload
-    state.player.currency[currency] -= amount
+    state.player.currency[currency] += amount
     return state
 }
 
-const give = (state, payload) => {
+const remove = (state, payload) => {
     const { currency, amount } = payload
-    state.player.currency[currency] += amount
+    state.player.currency[currency] -= amount
     return state
 }
 
@@ -44,8 +44,8 @@ const BaseComponent = {
         onFixedUpdate,
     },
     actions: {
-        take,
-        give,
+        add,
+        remove,
     },
     helpers: {},
 }
