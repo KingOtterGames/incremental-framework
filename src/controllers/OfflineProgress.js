@@ -18,18 +18,33 @@ const onFixedUpdate = (state, deltaTime) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
+const seen = (state, payload) => {
+    state.offlineProgress.seen = true
+    state.offlineProgress.ticksPassed = 0
+    state.offlineProgress.resources = []
+    return state
+}
+
 const calculate = (state, payload) => {
     const { ticksPassed } = payload
-    console.log('Offline Progress (based on FPS): ', ticksPassed)
+
+    /**
+     * Do Offline Progress Stuff Here
+     * resources mock: [{ name, image, amount }]
+     */
+
+    state.offlineProgress.ticksPassed = ticksPassed
+    state.offlineProgress.seen = ticksPassed >= 5 ? false : true
+
+    /**
+     * END Offline Stuff
+     */
     return state
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Helpers (State cannot be modified)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const helper = () => {
-    return 49
-}
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Export of Controller (You'll need to route it out so you can utilize the functions in the dispatchers)
@@ -40,11 +55,10 @@ const BaseComponent = {
         onFixedUpdate,
     },
     actions: {
+        seen,
         calculate,
     },
-    helpers: {
-        helper,
-    },
+    helpers: {},
 }
 
 export default BaseComponent

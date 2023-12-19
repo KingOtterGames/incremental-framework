@@ -20,7 +20,37 @@ function Clicker({ state, dispatch }) {
             >
                 State
             </button>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'Manager.speed', payload: { speed: 5 } })
+                }}
+            >
+                5x Speed
+            </button>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'Manager.speed', payload: { speed: 1 } })
+                }}
+            >
+                1x Speed
+            </button>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'Manager.speed', payload: { speed: 0 } })
+                }}
+            >
+                Paused
+            </button>
             <p>{Formatter.decimal(state.player.currency.gold)}</p>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'OfflineProgress.seen', payload: { speed: 0 } })
+                }}
+            >
+                Acknowledge Offline Progress
+            </button>
+            <p>{state.offlineProgress.seen ? 'Player Seen' : 'Player has not seen'}</p>
+            <p>{Formatter.whole(state.offlineProgress.ticksPassed)}</p>
         </div>
     )
 }

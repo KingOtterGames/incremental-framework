@@ -1,8 +1,14 @@
 {
   "version": 1,
   "lastTick": null,
+  "timeScale": 1,
   "options": {
     "offlineProgress": true
+  },
+  "offlineProgress": {
+    "seen": true,
+    "ticksPassed": 0,
+    "resources": []
   },
   "player": {
     "name": "player",

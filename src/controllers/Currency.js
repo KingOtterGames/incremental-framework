@@ -5,6 +5,7 @@
  * The 'onUpdate' Function - Utilize in Timer-based calculations and math
  */
 const onUpdate = (state, deltaTime) => {
+    state.player.currency.gold += deltaTime
     return state
 }
 
@@ -33,9 +34,6 @@ const give = (state, payload) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Helpers (State cannot be modified)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const helper = () => {
-    return 49
-}
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Export of Controller (You'll need to route it out so you can utilize the functions in the dispatchers)
@@ -49,9 +47,7 @@ const BaseComponent = {
         take,
         give,
     },
-    helpers: {
-        helper,
-    },
+    helpers: {},
 }
 
 export default BaseComponent

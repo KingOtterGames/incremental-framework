@@ -18,11 +18,9 @@ function Game() {
      * Core Game Loop
      */
     useEffect(() => {
-        console.log(ManagerController.helpers.isDemo())
         // Game Loop Functionality
         const fps = GeneralConfig.loop.fps // Frames Per Second
         const fixedUpdateRate = 1 / fps // Math to calculate the actual FPS
-        const timeScale = GeneralConfig.loop.timeScale // Multiplier on delta time, used for speeding, slowing, and pausing mechanics
         let frameId = 0
         let prevFrameTime = 0
         let accumulatedLagTime = 0
@@ -63,11 +61,11 @@ function Game() {
                 // Handle onFixedUpdate Logic
                 while (accumulatedLagTime >= fixedUpdateRate) {
                     accumulatedLagTime -= fixedUpdateRate
-                    dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime * timeScale } })
+                    dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime } })
                 }
 
                 // Handle onUpdate Logic
-                dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime * timeScale } })
+                dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime } })
 
                 // Set Frame Time
                 prevFrameTime = currentFrameTime
@@ -99,11 +97,11 @@ function Game() {
 
             function resetTimer() {
                 clearTimeout(time)
-                time = setTimeout(saveGame, 60000 * 5)
+                time = setTimeout(saveGame, 60000 * GeneralConfig.autoSaveTimer.minutes)
             }
         }
 
-        activityTimer()
+        if (GeneralConfig.autoSaveTimer.enabled) activityTimer()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -113,7 +111,6 @@ function Game() {
      */
     useEffect(() => {
         let inactivityTime = function () {
-            console.log('i')
             let time
 
             window.onload = resetTimer

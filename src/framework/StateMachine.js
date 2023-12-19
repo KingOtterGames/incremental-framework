@@ -18,7 +18,7 @@ const onUpdate = (state, deltaTime) => {
     for (let i = 0; i < keys.length; i++) {
         let file = Controllers[keys[i]]
         if (file?.default?.builtins?.onUpdate) {
-            newState = cloneDeep(file.default.builtins.onUpdate(newState, deltaTime))
+            newState = cloneDeep(file.default.builtins.onUpdate(newState, deltaTime * state.timeScale))
         }
     }
     return newState
@@ -30,7 +30,7 @@ const onFixedUpdate = (state, deltaTime) => {
     for (let i = 0; i < keys.length; i++) {
         let file = Controllers[keys[i]]
         if (file?.default?.builtins?.onFixedUpdate) {
-            newState = cloneDeep(file.default.builtins.onFixedUpdate(newState, deltaTime))
+            newState = cloneDeep(file.default.builtins.onFixedUpdate(newState, deltaTime * state.timeScale))
         }
     }
     return newState

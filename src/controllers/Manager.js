@@ -23,6 +23,12 @@ const lastTick = (state, payload) => {
     return state
 }
 
+const speed = (state, payload) => {
+    const { speed } = payload
+    state.timeScale = speed
+    return state
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Helpers (State cannot be modified)
 // ------------------------------------------------------------------------------------------------------------------------------------
@@ -40,6 +46,7 @@ const BaseComponent = {
     },
     actions: {
         lastTick,
+        speed,
     },
     helpers: {
         isDemo,
