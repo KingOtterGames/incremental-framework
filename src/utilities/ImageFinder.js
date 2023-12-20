@@ -12,8 +12,14 @@ const get = (key) => {
     return images[key]
 }
 
+const validate = (key) => {
+    if (images[key]) return true
+    return false
+}
+
 const ImageFinder = {
     get,
+    validate,
 }
 
 export default ImageFinder

@@ -18,7 +18,8 @@
     "react-scripts": "5.0.1",
     "seedrandom": "^3.0.5",
     "steamworks.js": "^0.0.26",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yaml": "^2.3.4"
   },
   "build": {
     "appId": "com.incremental-framework.app",
@@ -33,7 +34,7 @@
     "build": "set REACT_APP_DEMO=false && react-scripts build",
     "build:demo": "set REACT_APP_DEMO=true && react-scripts build",
     "pack": "electron-builder --dir",
-    "package": "sh ./package.sh",
+    "package": "sh ./automations/package.sh",
     "test": "jest src/"
   },
   "eslintConfig": {

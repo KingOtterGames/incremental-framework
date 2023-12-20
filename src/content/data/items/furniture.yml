@@ -1,0 +1,11 @@
+- id: 'debug-chair'
+  type: 'resource'
+  subtype: ''
+  data: 'items'
+  image: 'items/placeholder.png'
+  stackable: true
+  market:
+      sellable: true
+      currency: gold
+      value: 1000
+  displayName: 'Debug Chair'
