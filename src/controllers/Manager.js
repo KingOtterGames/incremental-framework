@@ -5,6 +5,13 @@
  * The 'onUpdate' Function - Utilize in Timer-based calculations and math
  */
 const onUpdate = (state, deltaTime) => {
+    /**
+     * Used for tracking playtime (Doesn't include when paused)
+     */
+    if (state.timeScale > 0) {
+        state.playtime += deltaTime / state.timeScale
+    }
+
     return state
 }
 

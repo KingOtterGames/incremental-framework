@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import Formatter from 'utilities/Formatter'
 
-function Clicker({ state, dispatch }) {
+const Demo = ({ state, dispatch, quit }) => {
+    const slot = localStorage.getItem('slot')
+
     useEffect(() => {}, [])
 
     return (
@@ -19,6 +21,13 @@ function Clicker({ state, dispatch }) {
                 }}
             >
                 State
+            </button>
+            <button
+                onClick={() => {
+                    dispatch({ type: 'Manager.speed', payload: { speed: 60 } })
+                }}
+            >
+                60x Speed
             </button>
             <button
                 onClick={() => {
@@ -41,6 +50,13 @@ function Clicker({ state, dispatch }) {
             >
                 Paused
             </button>
+            <button
+                onClick={() => {
+                    quit()
+                }}
+            >
+                Quit to Main Menu
+            </button>
             <p>{Formatter.decimal(state.player.currency.gold)}</p>
             <button
                 onClick={() => {
@@ -51,8 +67,10 @@ function Clicker({ state, dispatch }) {
             </button>
             <p>{state.offlineProgress.seen ? 'Player Seen' : 'Player has not seen'}</p>
             <p>{Formatter.whole(state.offlineProgress.ticksPassed)}</p>
+            <p>Slot: {slot}</p>
+            <p>Playtime: {Formatter.timer(state.playtime)}</p>
         </div>
     )
 }
 
-export default Clicker
+export default Demo

@@ -2,6 +2,7 @@
   "version": 1,
   "lastTick": null,
   "timeScale": 1,
+  "playtime": 0,
   "options": {
     "offlineProgress": true
   },
@@ -15,6 +16,7 @@
     "currency": {
       "gold": 0
     },
-    "upgrades": []
+    "upgrades": [],
+    "inventory": []
   }
 }

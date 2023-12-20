@@ -9,8 +9,8 @@ const create = (seed) => {
     return seedrandom(seed || new Date())
 }
 
-const Seed = {
+const RandomSeed = {
     create,
 }
 
-export default Seed
+export default RandomSeed

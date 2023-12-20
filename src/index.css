@@ -16,19 +16,19 @@ html, body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f100;
-  border-radius: 10px;
+  /* background: #f1f1f100;
+  border-radius: 10px; */
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #002649;
-  border-radius: 10px;
+  /* background: #002649;
+  border-radius: 10px; */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #003e79;
+  /* background: #003e79; */
 }
 
 img {

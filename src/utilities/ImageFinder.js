@@ -12,8 +12,8 @@ const get = (key) => {
     return images[key]
 }
 
-const Images = {
+const ImageFinder = {
     get,
 }
 
-export default Images
+export default ImageFinder

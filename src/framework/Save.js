@@ -57,6 +57,8 @@ const Save = {
     patch,
     save,
     version,
+    encode,
+    decode,
 }
 
 export default Save

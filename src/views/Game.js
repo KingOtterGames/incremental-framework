@@ -1,18 +1,15 @@
 import { useEffect, useReducer } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
 import GeneralConfig from 'config/General'
-import ManagerController from 'controllers/Manager'
+import Navigator from './GameNavigation'
 
-/**
- * DEMO: Delete these imports for a real project
- */
-import Clicker from 'demo/Clicker'
-
-function Game() {
+const Game = () => {
     const slot = localStorage.getItem('slot') || '0'
     const CurrentState = Save.load(slot)
     const [state, dispatch] = useReducer(StateMachine.reducer, CurrentState)
+    const navigate = useNavigate()
 
     /**
      * Core Game Loop
@@ -146,11 +143,12 @@ function Game() {
         }
     }, [state, slot])
 
-    return (
-        <div>
-            <Clicker state={state} dispatch={dispatch} />
-        </div>
-    )
+    const quit = () => {
+        Save.save(state, slot)
+        navigate('/')
+    }
+
+    return <Navigator state={state} dispatch={dispatch} quit={quit} />
 }
 
 export default Game

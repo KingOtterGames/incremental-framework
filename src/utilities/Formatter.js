@@ -20,9 +20,22 @@ const whole = (amount) => {
     return decimal(amount).split('.')[0]
 }
 
-const Helper = {
-    decimal,
-    whole,
+const timer = (seconds) => {
+    const minutes = seconds / 60
+    const hours = minutes / 60
+    if (minutes < 1) {
+        return Math.floor(seconds) + ' second' + (Math.floor(seconds) !== 1 ? 's' : '')
+    } else if (minutes < 60) {
+        return Math.floor(minutes) + ' minute' + (Math.floor(minutes) !== 1 ? 's' : '')
+    } else {
+        return hours.toFixed(1) + ' hour' + (Math.floor(hours) !== 1 ? 's' : '')
+    }
 }
 
-export default Helper
+const Formatter = {
+    decimal,
+    whole,
+    timer,
+}
+
+export default Formatter
