@@ -14,9 +14,6 @@ const data = importAll(require.context('content/data/', true))
 
 const readYAML = (file, key) => {
     return new Promise((res, rej) => {
-        // SKIP SCHEMA FILES
-        if (key.includes('.md')) res(null)
-
         // PARSE FILE
         fetch(file)
             .then((r) => r.text())

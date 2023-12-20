@@ -34,6 +34,8 @@ This was designed by Braymen, based on the framework he had designed for his fir
 
 # Utilities
 
+## Data Finder
+
 ## Formatter
 
 ## Image Finder
@@ -45,3 +47,5 @@ This was designed by Braymen, based on the framework he had designed for his fir
 # Folder Structure
 
 # Packaging Automation for Steam/Web
+
+# Data Validation

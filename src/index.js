@@ -8,6 +8,7 @@ import SteamPlugin from './framework/Steam'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <HashRouter>
+        <input id="fileid" type="file" hidden accept=".json" />
         <SteamPlugin />
         <App />
     </HashRouter>

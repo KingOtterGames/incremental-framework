@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Save from 'framework/Save'
 import Formatter from 'utilities/Formatter'
 import Manager from 'controllers/Manager'
+import SaveManager from 'utilities/SaveManager'
 
 const Menu = () => {
     const navigate = useNavigate()
@@ -28,10 +29,19 @@ const Menu = () => {
                         >
                             {hasSave ? 'Continue' : 'New Game'}
                         </button>
-                        <button disabled={!hasSave} onClick={() => {}}>
+                        <button
+                            onClick={() => {
+                                SaveManager.importSave(i)
+                            }}
+                        >
                             Import
                         </button>
-                        <button disabled={!hasSave} onClick={() => {}}>
+                        <button
+                            disabled={!hasSave}
+                            onClick={() => {
+                                SaveManager.exportSave(i)
+                            }}
+                        >
                             Export
                         </button>
                         <button

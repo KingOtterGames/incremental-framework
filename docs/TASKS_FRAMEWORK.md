@@ -1,5 +1,5 @@
 -   Add Ant Design Base
--   Disable holding enter on buttons
+-   Basic Tab Navigation (Maybe just ant design again)
 -   Built-in systems I want
     -   Inventory System
     -   Looting
@@ -7,6 +7,3 @@
     -   Achievment System
     -   Reward System
     -   Quest System
--   Basic Tab Navigation (Maybe just ant design again)
--   Import/Export
--   Verify each image is there for items

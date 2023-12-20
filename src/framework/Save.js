@@ -41,11 +41,11 @@ const patch = (oldJSON, newJSON) => {
 }
 
 const encode = (data) => {
-    return LZString.compress(data)
+    return LZString.compressToUTF16(data)
 }
 
 const decode = (data) => {
-    return LZString.decompress(data)
+    return LZString.decompressFromUTF16(data)
 }
 
 const version = (loadedState) => {
