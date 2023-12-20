@@ -18,6 +18,5 @@
 
 Dev Menu
 
--   FPS
 -   Click to Log State
 -   Is Demo Check

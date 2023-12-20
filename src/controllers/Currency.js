@@ -20,13 +20,18 @@ const onFixedUpdate = (state, deltaTime) => {
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
 const add = (state, payload) => {
-    const { currency, amount } = payload
+    const amount = parseFloat(payload.amount)
+    const currency = payload.currency
+    if (amount < 0) return state
     state.player.currency[currency] += amount
     return state
 }
 
 const remove = (state, payload) => {
-    const { currency, amount } = payload
+    const amount = parseFloat(payload.amount)
+    const currency = payload.currency
+    if (amount < 0) return state
+    if (state.player.currency[currency] - amount < 0) return state
     state.player.currency[currency] -= amount
     return state
 }
@@ -38,7 +43,7 @@ const remove = (state, payload) => {
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Export of Controller (You'll need to route it out so you can utilize the functions in the dispatchers)
 // ------------------------------------------------------------------------------------------------------------------------------------
-const BaseComponent = {
+export const BaseComponent = {
     builtins: {
         onUpdate,
         onFixedUpdate,
