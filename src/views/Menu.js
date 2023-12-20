@@ -2,11 +2,14 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Save from 'framework/Save'
 import Formatter from 'utilities/Formatter'
+import Manager from 'controllers/Manager'
 
 const Menu = () => {
     const navigate = useNavigate()
 
     useEffect(() => {}, [])
+
+    const isDemo = Manager.helpers.isDemo()
 
     return (
         <div>
@@ -44,6 +47,8 @@ const Menu = () => {
                     </div>
                 )
             })}
+            <p>Build: v{process.env.REACT_APP_VERSION}</p>
+            <p>Demo: {isDemo}</p>
         </div>
     )
 }
