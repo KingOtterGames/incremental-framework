@@ -1,0 +1,73 @@
+.bg-lvl-1 {
+ background-color: #1e2124 !important;
+}
+
+.bg-lvl-2 {
+ background-color: rgb(40, 43, 48) !important;
+}
+
+.bg-lvl-3 {
+    background-color: #36393e !important;
+}
+
+.primary {
+    background-color: rgb(78, 100, 226);
+    color: white;
+    border: 2px solid rgba(0,0,0,0);
+    font-weight: 600;
+}
+
+.primary:hover {
+    background-color: rgb(102, 123, 238) !important;
+}
+
+.secondary {
+    background-color: #ffffff;
+    color: #1e2124;
+    border: 2px solid rgba(0,0,0,0);
+    font-weight: 600;
+}
+
+.secondary:hover {
+    background-color: #ececec !important;
+    color: #1e2124 !important;
+}
+
+.tertiary {
+    background-color: rgba(0,0,0,0);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.tertiary:hover {
+    background-color: rgba(255, 255, 255, 0.098) !important;
+}
+
+.warning {
+    background-color: rgb(188, 59, 59);
+    color: white;
+    border: 2px solid rgba(0,0,0,0);
+    font-weight: 600;
+}
+
+.warning:hover {
+    background-color: rgb(202, 79, 79) !important;
+}
+
+.purchase {
+    background-color: rgb(225, 184, 81);
+    color: rgb(80, 73, 66);
+    border: 2px solid rgba(0,0,0,0);
+    font-weight: 600;
+}
+
+.purchase:hover {
+    background-color: rgb(236, 200, 109) !important;
+    color: #1e2124 !important;
+}
+
+
+.disabled {
+    opacity: 30%;
+}

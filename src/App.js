@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Spin } from 'antd'
 import './App.css'
+import './Theme.css'
 
 import DataFinder from 'utilities/DataFinder'
 

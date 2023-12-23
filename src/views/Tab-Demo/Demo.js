@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Formatter from 'utilities/Formatter'
+import { Button } from 'antd'
 
 const Demo = ({ state, dispatch, quit }) => {
     const slot = localStorage.getItem('slot')
@@ -63,6 +64,21 @@ const Demo = ({ state, dispatch, quit }) => {
             <p>{Formatter.whole(state.offlineProgress.ticksPassed)}</p>
             <p>Slot: {slot}</p>
             <p>Playtime: {Formatter.timer(state.playtime)}</p>
+            <Button type="primary" className="primary" onClick={() => {}}>
+                Primary
+            </Button>
+            <Button type="primary" className="secondary" onClick={() => {}}>
+                Secondary
+            </Button>
+            <Button type="primary" className="tertiary" onClick={() => {}}>
+                Tertiary
+            </Button>
+            <Button type="primary" className="warning" onClick={() => {}}>
+                Warning
+            </Button>
+            <Button type="primary" className="purchase" onClick={() => {}}>
+                Purchase
+            </Button>
         </div>
     )
 }

@@ -52,13 +52,13 @@ const Menu = () => {
                             }}
                         >
                             Delete
-                        </button>{' '}
+                        </button>
                         <span>{hasSave ? Formatter.timer(playtime) : ''}</span>
                     </div>
                 )
             })}
             <p>Build: v{process.env.REACT_APP_VERSION}</p>
-            <p>Demo: {isDemo}</p>
+            <p>Demo: {isDemo ? 'true' : 'false'}</p>
         </div>
     )
 }

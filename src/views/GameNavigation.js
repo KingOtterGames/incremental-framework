@@ -80,6 +80,7 @@ const GameNavigation = ({ state, dispatch, quit, quitFully }) => {
         <Layout hasSider>
             <Sider
                 width={'300px'}
+                className="bg-lvl-1"
                 style={{
                     overflow: 'auto',
                     height: '100vh',
@@ -87,7 +88,6 @@ const GameNavigation = ({ state, dispatch, quit, quitFully }) => {
                     left: 0,
                     top: 0,
                     bottom: 0,
-                    background: '#1e2124',
                 }}
             >
                 <h3 style={{ padding: 0, margin: 0, textAlign: 'center', marginBottom: '16px' }}>Incremental Framework</h3>
@@ -99,7 +99,7 @@ const GameNavigation = ({ state, dispatch, quit, quitFully }) => {
 
                 <Menu
                     theme="dark"
-                    style={{ background: '#1e2124' }}
+                    className="bg-lvl-1"
                     mode="inline"
                     defaultSelectedKeys={['sub1-1']}
                     selectable={false}
@@ -111,15 +111,14 @@ const GameNavigation = ({ state, dispatch, quit, quitFully }) => {
                     Version {process.env.REACT_APP_VERSION}
                 </p>
             </Sider>
-            <Layout style={{ background: '#282b30', marginLeft: '300px' }}>
-                <Header style={{ padding: 0, background: '#1e2124', height: '36px' }} />
-                <Content style={{ margin: '24px 16px 0', overflow: 'initial', backgrond: '#36393e' }}>
+            <Layout className="bg-lvl-2" style={{ marginLeft: '300px' }}>
+                <Header className="bg-lvl-1" style={{ padding: 0, height: '36px' }} />
+                <Content className="bg-lvl-2" style={{ margin: '24px 16px 0', overflow: 'initial' }}>
                     <div
+                        className="bg-lvl-3"
                         style={{
                             padding: 24,
-                            textAlign: 'center',
-                            background: '#36393e',
-                            borderRadius: '12px',
+                            borderRadius: '8px',
                         }}
                     >
                         <GameRouter state={state} dispatch={dispatch} />
