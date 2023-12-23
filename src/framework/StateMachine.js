@@ -14,11 +14,15 @@ const Controllers = importAll(require.context('controllers/', false, /\.(js)$/))
 
 const onUpdate = (state, deltaTime) => {
     let newState = cloneDeep(state)
-    let keys = Object.keys(Controllers)
-    for (let i = 0; i < keys.length; i++) {
-        let file = Controllers[keys[i]]
-        if (file?.default?.builtins?.onUpdate) {
-            newState = cloneDeep(file.default.builtins.onUpdate(newState, deltaTime * state.timeScale))
+
+    if (newState.player.name) {
+        newState.playtime += deltaTime
+        let keys = Object.keys(Controllers)
+        for (let i = 0; i < keys.length; i++) {
+            let file = Controllers[keys[i]]
+            if (file?.default?.builtins?.onUpdate) {
+                newState = cloneDeep(file.default.builtins.onUpdate(newState, deltaTime * state.timeScale))
+            }
         }
     }
     return newState
@@ -26,11 +30,14 @@ const onUpdate = (state, deltaTime) => {
 
 const onFixedUpdate = (state, deltaTime) => {
     let newState = cloneDeep(state)
-    let keys = Object.keys(Controllers)
-    for (let i = 0; i < keys.length; i++) {
-        let file = Controllers[keys[i]]
-        if (file?.default?.builtins?.onFixedUpdate) {
-            newState = cloneDeep(file.default.builtins.onFixedUpdate(newState, deltaTime * state.timeScale))
+
+    if (newState.player.name) {
+        let keys = Object.keys(Controllers)
+        for (let i = 0; i < keys.length; i++) {
+            let file = Controllers[keys[i]]
+            if (file?.default?.builtins?.onFixedUpdate) {
+                newState = cloneDeep(file.default.builtins.onFixedUpdate(newState, deltaTime * state.timeScale))
+            }
         }
     }
     return newState

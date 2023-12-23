@@ -9,7 +9,7 @@ function Preferences({ state, dispatch }) {
     }
 
     return (
-        <div style={{ maxWidth: '1200px', margin: 'auto', overflow: 'hidden', color: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: 'auto', overflow: 'hidden', color: 'white', textAlign: 'center' }}>
             <Checkbox onChange={(e) => onChange(e, 'offlineProgress')} key={'test'} checked={state.flags.offlineProgress}>
                 Offline Progress
             </Checkbox>

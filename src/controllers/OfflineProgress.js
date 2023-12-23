@@ -1,3 +1,5 @@
+import { Modal } from 'antd'
+
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Built-Ins (These are used in the engine and are required for every controller)
 // ------------------------------------------------------------------------------------------------------------------------------------
@@ -19,7 +21,6 @@ const onFixedUpdate = (state, deltaTime) => {
 // ---- Actions (State can be altered and utilizes the dispatch events)
 // ------------------------------------------------------------------------------------------------------------------------------------
 const seen = (state, payload) => {
-    state.offlineProgress.seen = true
     state.offlineProgress.ticksPassed = 0
     state.offlineProgress.resources = []
     return state
@@ -34,11 +35,29 @@ const calculate = (state, payload) => {
      */
 
     state.offlineProgress.ticksPassed = ticksPassed
-    state.offlineProgress.seen = ticksPassed >= 5 ? false : true
 
     /**
-     * END Offline Stuff
+     * Display Reward Notification
      */
+    if (ticksPassed > 4) {
+        Modal.info({
+            title: <h3 style={{ margin: 0, padding: 0 }}>While you were gone...</h3>,
+            content: (
+                <p style={{ margin: 0, padding: 0 }}>
+                    {ticksPassed} tick{ticksPassed === 1 ? '' : 's'} has passed!
+                </p>
+            ),
+            styles: {
+                mask: {
+                    backgroundColor: 'rgba(0,0,0,.85)',
+                },
+            },
+            closable: true,
+            maskClosable: true,
+            onOk() {},
+        })
+    }
+
     return state
 }
 

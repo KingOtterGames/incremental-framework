@@ -42,34 +42,28 @@ const Game = () => {
         // Handling Ticks
         const tick = (currentFrameTime = 0) => {
             try {
-                // Check if Created
-                const created = state.player.name !== ''
-
                 // Set Last Tick
                 dispatch({ type: 'Manager.lastTick', payload: {} })
 
                 frameId = requestAnimationFrame(tick)
 
-                // Only Run Loop if a Character is done being created
-                if (created) {
-                    // Check and process player inputs
-                    onHandleInput()
+                // Check and process player inputs
+                onHandleInput()
 
-                    // Calculate Lag & Delta Time
-                    const deltaMS = currentFrameTime - prevFrameTime
-                    const deltaTime = Math.min(fixedUpdateRate, deltaMS / 1000)
+                // Calculate Lag & Delta Time
+                const deltaMS = currentFrameTime - prevFrameTime
+                const deltaTime = Math.min(fixedUpdateRate, deltaMS / 1000)
 
-                    accumulatedLagTime += deltaTime
+                accumulatedLagTime += deltaTime
 
-                    // Handle onFixedUpdate Logic
-                    while (accumulatedLagTime >= fixedUpdateRate) {
-                        accumulatedLagTime -= fixedUpdateRate
-                        dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime } })
-                    }
-
-                    // Handle onUpdate Logic
-                    dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime } })
+                // Handle onFixedUpdate Logic
+                while (accumulatedLagTime >= fixedUpdateRate) {
+                    accumulatedLagTime -= fixedUpdateRate
+                    dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime } })
                 }
+
+                // Handle onUpdate Logic
+                dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime } })
 
                 // Set Frame Time
                 prevFrameTime = currentFrameTime

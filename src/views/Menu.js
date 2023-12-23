@@ -26,7 +26,7 @@ const Menu = () => {
                         const hasSave = localStorage.getItem('save-' + i)
                         const decodedSave = hasSave && Save.load(i)
                         const playtime = decodedSave && decodedSave.playtime
-                        const lastPlayed = decodedSave && new Date(decodedSave.lastTick).toUTCString()
+                        const lastPlayed = decodedSave && new Date(decodedSave.lastTick).toLocaleString()
 
                         return (
                             <div

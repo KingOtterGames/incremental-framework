@@ -60,8 +60,7 @@ const Demo = ({ state, dispatch, quit }) => {
             >
                 Acknowledge Offline Progress
             </button>
-            <p>{state.offlineProgress.seen ? 'Player Seen' : 'Player has not seen'}</p>
-            <p>{Formatter.whole(state.offlineProgress.ticksPassed)}</p>
+            <p>Ticks passed while offline: {Formatter.whole(state.offlineProgress.ticksPassed)}</p>
             <p>Slot: {slot}</p>
             <p>Playtime: {Formatter.timer(state.playtime)}</p>
             <Button type="primary" className="primary" onClick={() => {}}>
