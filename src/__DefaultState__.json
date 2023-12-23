@@ -16,7 +16,7 @@
     "offlineProgress": true
   },
   "player": {
-    "name": "player",
+    "name": "",
     "currency": {
       "gold": 0
     },

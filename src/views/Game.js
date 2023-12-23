@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
 import GeneralConfig from 'config/General'
-import GameNavigation from './GameNavigation'
+import GameNavigation from 'views/GameNavigation'
+import CharacterCreator from 'views/Tab-CharacterCreator/CharacterCreator'
 
 const Game = () => {
     const slot = localStorage.getItem('slot') || '0'
@@ -41,28 +42,34 @@ const Game = () => {
         // Handling Ticks
         const tick = (currentFrameTime = 0) => {
             try {
+                // Check if Created
+                const created = state.player.name !== ''
+
                 // Set Last Tick
                 dispatch({ type: 'Manager.lastTick', payload: {} })
 
                 frameId = requestAnimationFrame(tick)
 
-                // Check and process player inputs
-                onHandleInput()
+                // Only Run Loop if a Character is done being created
+                if (created) {
+                    // Check and process player inputs
+                    onHandleInput()
 
-                // Calculate Lag & Delta Time
-                const deltaMS = currentFrameTime - prevFrameTime
-                const deltaTime = Math.min(fixedUpdateRate, deltaMS / 1000)
+                    // Calculate Lag & Delta Time
+                    const deltaMS = currentFrameTime - prevFrameTime
+                    const deltaTime = Math.min(fixedUpdateRate, deltaMS / 1000)
 
-                accumulatedLagTime += deltaTime
+                    accumulatedLagTime += deltaTime
 
-                // Handle onFixedUpdate Logic
-                while (accumulatedLagTime >= fixedUpdateRate) {
-                    accumulatedLagTime -= fixedUpdateRate
-                    dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime } })
+                    // Handle onFixedUpdate Logic
+                    while (accumulatedLagTime >= fixedUpdateRate) {
+                        accumulatedLagTime -= fixedUpdateRate
+                        dispatch({ type: 'onFixedUpdate', payload: { deltaTime: deltaTime } })
+                    }
+
+                    // Handle onUpdate Logic
+                    dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime } })
                 }
-
-                // Handle onUpdate Logic
-                dispatch({ type: 'onUpdate', payload: { deltaTime: deltaTime } })
 
                 // Set Frame Time
                 prevFrameTime = currentFrameTime
@@ -153,6 +160,16 @@ const Game = () => {
         window.electronAPI.quit()
     }
 
+    /**
+     * Needs to Create Character and Configure Settings
+     */
+    if (state.player.name === '') {
+        return <CharacterCreator state={state} dispatch={dispatch} quit={quit} />
+    }
+
+    /**
+     * In-Game Views
+     */
     return <GameNavigation state={state} dispatch={dispatch} quit={quit} quitFully={quitFully} />
 }
 

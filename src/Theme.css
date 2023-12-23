@@ -15,6 +15,7 @@
     color: white;
     border: 2px solid rgba(0,0,0,0);
     font-weight: 600;
+    margin: 4px;
 }
 
 .primary:hover {
@@ -26,6 +27,7 @@
     color: #1e2124;
     border: 2px solid rgba(0,0,0,0);
     font-weight: 600;
+    margin: 4px;
 }
 
 .secondary:hover {
@@ -38,6 +40,7 @@
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
     font-weight: 600;
+    margin: 4px;
 }
 
 .tertiary:hover {
@@ -49,10 +52,23 @@
     color: white;
     border: 2px solid rgba(0,0,0,0);
     font-weight: 600;
+    margin: 4px;
 }
 
 .warning:hover {
     background-color: rgb(202, 79, 79) !important;
+}
+
+.success {
+    background-color: rgb(57, 200, 57);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgba(0,0,0,0);
+    font-weight: 600;
+    margin: 4px;
+}
+
+.success:hover {
+    background-color: rgb(73, 218, 73) !important;
 }
 
 .purchase {
@@ -60,6 +76,7 @@
     color: rgb(80, 73, 66);
     border: 2px solid rgba(0,0,0,0);
     font-weight: 600;
+    margin: 4px;
 }
 
 .purchase:hover {
@@ -68,6 +85,8 @@
 }
 
 
-.disabled {
-    opacity: 30%;
+.disabled-button {
+    opacity: 80%;
+    border: 2px solid rgba(0,0,0,0);
+    margin: 4px;
 }

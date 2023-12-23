@@ -90,7 +90,7 @@ const GameNavigation = ({ state, dispatch, quit, quitFully }) => {
                     bottom: 0,
                 }}
             >
-                <h3 style={{ padding: 0, margin: 0, textAlign: 'center', marginBottom: '16px' }}>Incremental Framework</h3>
+                <h3 style={{ padding: 0, margin: 0, textAlign: 'center', marginBottom: '16px' }}>{process.env.REACT_APP_DISPLAY_NAME}</h3>
                 {isDemo ? (
                     <h4 style={{ padding: '10px 0', margin: 0, textAlign: 'center', marginBottom: '4px', background: '#9c392c' }}>DEMO VERSION</h4>
                 ) : (

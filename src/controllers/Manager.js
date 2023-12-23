@@ -47,6 +47,11 @@ const flag = (state, payload) => {
     return state
 }
 
+const createCharacter = (state, payload) => {
+    state.player.name = payload.name
+    return state
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Helpers (State cannot be modified)
 // ------------------------------------------------------------------------------------------------------------------------------------
@@ -67,6 +72,7 @@ const BaseComponent = {
         speed,
         tab,
         flag,
+        createCharacter,
     },
     helpers: {
         isDemo,

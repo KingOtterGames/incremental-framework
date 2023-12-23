@@ -14,6 +14,16 @@ root.render(
         <ConfigProvider
             theme={{
                 algorithm: theme.darkAlgorithm,
+                components: {
+                    Input: {
+                        colorBgContainer: 'white',
+                        colorText: 'black',
+                        colorTextPlaceholder: 'gray',
+                    },
+                    Checkbox: {
+                        colorBgContainer: 'white',
+                    },
+                },
             }}
         >
             <Typography>
