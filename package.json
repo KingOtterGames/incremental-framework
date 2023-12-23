@@ -20,6 +20,7 @@
     "react-scripts": "5.0.1",
     "seedrandom": "^3.0.5",
     "steamworks.js": "^0.0.26",
+    "unique-names-generator": "^4.7.1",
     "uuid": "^9.0.0",
     "yaml": "^2.3.4"
   },

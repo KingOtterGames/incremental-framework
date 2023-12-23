@@ -1,0 +1,12 @@
+.hoverable-input-icon {
+    background-color: rgba(0,0,0,.08);
+    padding: 8px;
+    border-radius: 36px;
+}
+
+.hoverable-input-icon:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,.15);
+    padding: 8px;
+    border-radius: 36px;
+}

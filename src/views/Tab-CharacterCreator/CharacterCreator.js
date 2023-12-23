@@ -1,11 +1,22 @@
 import { useState } from 'react'
 import { Input, Button, Checkbox } from 'antd'
+import { BulbOutlined } from '@ant-design/icons'
+import { uniqueNamesGenerator, names } from 'unique-names-generator'
+import './CharacterCreator.css'
+
+const config = {
+    dictionaries: [names],
+}
 
 function CharacterCreator({ state, dispatch, quit }) {
     const [name, setName] = useState('')
 
     const onChangeFlag = (e, key) => {
         dispatch({ type: 'Manager.flag', payload: { key, checked: e.target.checked } })
+    }
+
+    const randomName = () => {
+        setName(uniqueNamesGenerator(config))
     }
 
     const notValidCreation = name.length === 0 || name.length > 16
@@ -23,6 +34,7 @@ function CharacterCreator({ state, dispatch, quit }) {
                     show: true,
                     max: 16,
                 }}
+                suffix={<BulbOutlined className="hoverable-input-icon" onClick={randomName} />}
             />
             <br />
             <Checkbox onChange={(e) => onChangeFlag(e, 'offlineProgress')} key={'test'} checked={state.flags.offlineProgress} style={{ marginTop: '16px' }}>
