@@ -1,7 +1,7 @@
 {
   "version": 1,
   "lastTick": null,
-  "lastTab": "",
+  "tab": "",
   "timeScale": 1,
   "playtime": 0,
   "options": {
@@ -11,6 +11,9 @@
     "seen": true,
     "ticksPassed": 0,
     "resources": []
+  },
+  "flags": {
+    "offlineProgress": true
   },
   "player": {
     "name": "player",

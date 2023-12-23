@@ -7,6 +7,8 @@
   "description": "A game built on the incremental framework, built by King Otter Games.",
   "author": "King Otter Games",
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "antd": "^5.12.4",
     "concurrently": "^7.6.0",
     "electron-is-dev": "^2.0.0",
     "env-cmd": "^10.1.0",

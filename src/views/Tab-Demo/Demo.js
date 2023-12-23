@@ -50,13 +50,7 @@ const Demo = ({ state, dispatch, quit }) => {
             >
                 Paused
             </button>
-            <button
-                onClick={() => {
-                    quit()
-                }}
-            >
-                Quit to Main Menu
-            </button>
+
             <p>{Formatter.decimal(state.player.currency.gold)}</p>
             <button
                 onClick={() => {

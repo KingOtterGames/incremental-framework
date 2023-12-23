@@ -136,7 +136,7 @@ app.whenReady().then(() => {
     console.log('Initialized Steamworks under the Steam Account: ' + getSteamName() + ' (' + getSteamId() + ')')
 
     // Quit App Event
-    ipcMain.on('close-me', function () {
+    ipcMain.on('quit', function () {
         app.quit()
     })
 
@@ -147,6 +147,16 @@ app.whenReady().then(() => {
         } else {
             mainWindow.setFullScreen(true)
         }
+    })
+
+    // Open Discord Link
+    electron.ipcMain.on('discord', () => {
+        electron.shell.openExternal('DISCORD LINK HERE')
+    })
+
+    // Open Youtube Link
+    electron.ipcMain.on('youtube', () => {
+        electron.shell.openExternal('YOUTUBE LINK HERE')
     })
 
     // Force Close when Closed

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Save from 'framework/Save'
 import StateMachine from 'framework/StateMachine'
 import GeneralConfig from 'config/General'
-import Navigator from './GameNavigation'
+import GameNavigation from './GameNavigation'
 
 const Game = () => {
     const slot = localStorage.getItem('slot') || '0'
@@ -23,7 +23,7 @@ const Game = () => {
         let accumulatedLagTime = 0
 
         // Handle Offline Progress
-        if (state.options.offlineProgress) {
+        if (state.flags.offlineProgress) {
             const lastTick = state.lastTick ? new Date(state.lastTick) : new Date()
             const now = new Date()
             const ticksPassed = Math.floor(Math.abs(now.getTime() - lastTick.getTime()) / (fps * 1000))
@@ -148,7 +148,12 @@ const Game = () => {
         navigate('/')
     }
 
-    return <Navigator state={state} dispatch={dispatch} quit={quit} />
+    const quitFully = () => {
+        Save.save(state, slot)
+        window.electronAPI.quit()
+    }
+
+    return <GameNavigation state={state} dispatch={dispatch} quit={quit} quitFully={quitFully} />
 }
 
 export default Game

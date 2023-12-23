@@ -36,11 +36,22 @@ const speed = (state, payload) => {
     return state
 }
 
+const tab = (state, payload) => {
+    state.tab = payload.tab
+    return state
+}
+
+const flag = (state, payload) => {
+    const { key, checked } = payload
+    state.flags[key] = checked
+    return state
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------
 // ---- Helpers (State cannot be modified)
 // ------------------------------------------------------------------------------------------------------------------------------------
 const isDemo = () => {
-    return process.env.REACT_APP_DEMO
+    return process.env.REACT_APP_DEMO === 'true' ? true : false
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------
@@ -54,6 +65,8 @@ const BaseComponent = {
     actions: {
         lastTick,
         speed,
+        tab,
+        flag,
     },
     helpers: {
         isDemo,

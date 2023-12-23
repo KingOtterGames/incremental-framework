@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
-  background: #001c38;
-  color: white;
+  background: 	#282b30;
+  color: #dbdee1;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
@@ -9,26 +9,8 @@ html, body {
   overflow-x: hidden;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  /* background: #f1f1f100;
-  border-radius: 10px; */
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  /* background: #002649;
-  border-radius: 10px; */
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  /* background: #003e79; */
+.highlight {
+  color: #403D38;
 }
 
 img {
@@ -36,4 +18,39 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+}
+
+.ant-menu-submenu-inline {
+  margin-left: 0px !important;
+}
+
+.ant-menu-item {
+  margin: 0 !important;
+  width: 100% !important;
+  padding-left: 24px !important;
+  background-color: #121314 !important;
+  border-radius: 0 !important;
+}
+
+.ant-menu-item:hover {
+  background-color: rgb(57, 57, 57) !important;
+}
+
+.ant-menu-item-selected {
+  background: #121314 !important;
+  border-radius: 0 !important;
+  color: rgb(255, 200, 123) !important;
+}
+
+.ant-menu-item-selected:hover {
+  background-color: rgb(57, 57, 57) !important;
+  border-radius: 0 !important;
+}
+
+.ant-menu-submenu-title {
+  padding-left: 8px !important;
+}
+
+.ant-menu-submenu {
+  padding: 0 !important;
 }

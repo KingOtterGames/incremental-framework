@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { Spin } from 'antd'
 import './App.css'
 
 import DataFinder from 'utilities/DataFinder'
@@ -13,12 +14,13 @@ const App = () => {
     useEffect(() => {
         DataFinder.load()
             .then(() => {
-                setData(true)
+                setTimeout(() => setData(true), 1000)
             })
             .catch((error) => {
                 throw error
             })
     }, [])
+
     return (
         <>
             {data ? (
@@ -29,7 +31,10 @@ const App = () => {
                     </Routes>
                 </>
             ) : (
-                <></>
+                <div className="loading-container">
+                    <Spin className="loading-spinner" size="large" />
+                    <p>Loading Data...</p>
+                </div>
             )}
         </>
     )

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 
-export default ({ state, dispatch }) => {
+function View({ state, dispatch }) {
     useEffect(() => {}, [])
 
     return <div></div>
 }
+
+export default View

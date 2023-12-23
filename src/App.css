@@ -1,0 +1,14 @@
+.loading-container {
+    text-align: center;
+    height: 100%;
+    padding: 10px;
+}
+
+.loading-spinner {
+    margin-top: 30vh;
+}
+
+li {
+    list-style-type:none;
+    text-decoration:none;
+  }
