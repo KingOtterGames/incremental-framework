@@ -53,13 +53,6 @@ const Demo = ({ state, dispatch, quit }) => {
             </button>
 
             <p>{Formatter.decimal(state.player.currency.gold)}</p>
-            <button
-                onClick={() => {
-                    dispatch({ type: 'OfflineProgress.seen', payload: { speed: 0 } })
-                }}
-            >
-                Acknowledge Offline Progress
-            </button>
             <p>Ticks passed while offline: {Formatter.whole(state.offlineProgress.ticksPassed)}</p>
             <p>Slot: {slot}</p>
             <p>Playtime: {Formatter.timer(state.playtime)}</p>

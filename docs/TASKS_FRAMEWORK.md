@@ -1,9 +1,6 @@
--   Add Ant Design Base
--   Basic Tab Navigation (Maybe just ant design again)
 -   Built-in systems I want
     -   Inventory System
-    -   Looting
-    -   Leveling
+    -   Basic Leveling
+    -   Loot Tables
     -   Achievment System
-    -   Reward System
     -   Quest System

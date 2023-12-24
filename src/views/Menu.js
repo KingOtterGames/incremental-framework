@@ -6,6 +6,7 @@ import Manager from 'controllers/Manager'
 import SaveManager from 'utilities/SaveManager'
 import { Button } from 'antd'
 import Credits from './Credits'
+import Confirmation from 'utilities/Confirmation'
 
 const Menu = () => {
     const [showCredits, setShowCredits] = useState(false)
@@ -85,8 +86,14 @@ const Menu = () => {
                                             type="primary"
                                             className={'warning'}
                                             onClick={() => {
-                                                localStorage.removeItem('save-' + i)
-                                                navigate('/')
+                                                Confirmation.remove(
+                                                    () => {
+                                                        localStorage.removeItem('save-' + i)
+                                                        navigate('/')
+                                                    },
+                                                    'Delete',
+                                                    'Are you sure you want to delete your save?'
+                                                )
                                             }}
                                             style={{ width: '120px', float: 'right', marginRight: 0 }}
                                         >
