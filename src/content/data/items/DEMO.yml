@@ -1,0 +1,21 @@
+- id: 'apple'
+  type: 'resource'
+  subtype: 'fruits'
+  image: 'items/placeholder.png'
+  stackable: true
+  market:
+      sellable: true
+      currency: gold
+      value: 1000
+  displayName: 'Apple (Debug)'
+
+- id: 'banana'
+  type: 'resource'
+  subtype: 'fruits'
+  image: 'items/placeholder.png'
+  stackable: true
+  market:
+      sellable: true
+      currency: gold
+      value: 1000
+  displayName: 'Banana (Debug)'

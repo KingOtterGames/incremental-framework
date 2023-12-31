@@ -1,6 +1,0 @@
-- id: 'dog'
-  type: 'pet'
-  subtype: ''
-  data: 'npcs'
-  image: 'items/placeholder.png'
-  displayName: 'Dog'

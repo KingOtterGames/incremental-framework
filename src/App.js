@@ -13,9 +13,15 @@ import Game from 'views/Game'
 const App = () => {
     const [data, setData] = useState(false)
     useEffect(() => {
-        DataFinder.load()
+        DataFinder.load('items')
             .then(() => {
-                setTimeout(() => setData(true), 1000)
+                DataFinder.load('npcs')
+                    .then(() => {
+                        setTimeout(() => setData(true), 1000)
+                    })
+                    .catch((error) => {
+                        throw error
+                    })
             })
             .catch((error) => {
                 throw error

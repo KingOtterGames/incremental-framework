@@ -1,6 +1,0 @@
--   Built-in systems I want
-    -   Inventory System
-    -   Basic Leveling
-    -   Loot Tables
-    -   Achievment System
-    -   Quest System
