@@ -39,7 +39,7 @@ const calculate = (state, payload) => {
     /**
      * Display Reward Notification
      */
-    if (ticksPassed > 4) {
+    if (ticksPassed > 4 && state.flags.offlineProgressPopup) {
         Modal.info({
             title: <h3 style={{ margin: 0, padding: 0 }}>While you were gone...</h3>,
             content: (

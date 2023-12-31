@@ -173,7 +173,7 @@ const timer = (seconds) => {
     const hours = minutes / 60
     if (minutes < 1) {
         return Math.floor(seconds) + ' second' + (Math.floor(seconds) !== 1 ? 's' : '')
-    } else if (minutes < 60) {
+    } else if (minutes < 120) {
         return Math.floor(minutes) + ' minute' + (Math.floor(minutes) !== 1 ? 's' : '')
     } else {
         return hours.toFixed(1) + ' hour' + (Math.floor(hours) !== 1 ? 's' : '')

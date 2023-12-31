@@ -9,7 +9,8 @@
     "resources": []
   },
   "flags": {
-    "offlineProgress": true
+    "offlineProgress": true,
+    "offlineProgressPopup": true
   },
   "player": {
     "name": "",
