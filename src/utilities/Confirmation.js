@@ -1,6 +1,6 @@
 import { Modal } from 'antd'
 
-const remove = (onConfirm, onConfirmText, description) => {
+const remove = (handleConfirm, buttonText, description) => {
     Modal.confirm({
         title: <h3 style={{ margin: 0, padding: 0 }}>{description}</h3>,
         content: null,
@@ -10,8 +10,8 @@ const remove = (onConfirm, onConfirmText, description) => {
             },
         },
         maskClosable: true,
-        onOk: onConfirm,
-        okText: onConfirmText,
+        onOk: handleConfirm,
+        okText: buttonText,
         okButtonProps: { style: { backgroundColor: 'rgb(188, 59, 59)' } },
         cancelText: 'Cancel',
         onCancel: () => {},

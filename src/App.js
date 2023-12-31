@@ -5,7 +5,7 @@ import { Spin } from 'antd'
 import './App.css'
 import './Theme.css'
 
-import DataFinder from 'utilities/DataFinder'
+import DataFinder from 'framework/DataFinder'
 
 import Menu from 'views/Menu'
 import Game from 'views/Game'

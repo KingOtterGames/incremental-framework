@@ -9,5 +9,8 @@
     "autoSaveTimer": {
         "enabled": true,
         "minutes": 5
+    },
+    "general": {
+        "saveSlots": 3
     }
 }

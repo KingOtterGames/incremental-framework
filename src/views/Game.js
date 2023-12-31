@@ -24,7 +24,7 @@ const Game = () => {
         let accumulatedLagTime = 0
 
         // Handle Offline Progress
-        if (state.flags.offlineProgress) {
+        if (state.flags.offlineProgress && state.player.name !== '') {
             const lastTick = state.lastTick ? new Date(state.lastTick) : new Date()
             const now = new Date()
             const ticksPassed = Math.floor(Math.abs(now.getTime() - lastTick.getTime()) / (fps * 1000))

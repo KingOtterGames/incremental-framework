@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import Save from 'framework/Save'
 import Formatter from 'utilities/Formatter'
 import Manager from 'controllers/Manager'
-import SaveManager from 'utilities/SaveManager'
+import SaveManager from 'framework/SaveManager'
 import { Button } from 'antd'
 import Credits from './Credits'
 import Confirmation from 'utilities/Confirmation'
+import GeneralConfig from 'config/General.json'
 
 const Menu = () => {
     const [showCredits, setShowCredits] = useState(false)
@@ -23,7 +24,7 @@ const Menu = () => {
                 <Credits back={() => setShowCredits(false)} />
             ) : (
                 <>
-                    {[...Array(3)].map((e, i) => {
+                    {[...Array(GeneralConfig.general.saveSlots)].map((e, i) => {
                         const hasSave = localStorage.getItem('save-' + i)
                         const decodedSave = hasSave && Save.load(i)
                         const playtime = decodedSave && decodedSave.playtime

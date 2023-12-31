@@ -4,9 +4,6 @@
   "tab": "Mechanic 1",
   "timeScale": 1,
   "playtime": 0,
-  "options": {
-    "offlineProgress": true
-  },
   "offlineProgress": {
     "ticksPassed": 0,
     "resources": []
