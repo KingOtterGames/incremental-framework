@@ -13,7 +13,7 @@
 .primary {
     background-color: rgb(78, 100, 226);
     color: white;
-    border: 2px solid rgba(0,0,0,0);
+    border: 2px solid rgba(78, 100, 226, 0);
     font-weight: 600;
     margin: 4px;
 }
@@ -44,6 +44,18 @@
 }
 
 .tertiary:hover {
+    background-color: rgba(255, 255, 255, 0.098) !important;
+}
+
+.progress {
+    background-color: rgba(0,0,0,0);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    font-weight: 600;
+    margin: 4px;
+}
+
+.progress:hover {
     background-color: rgba(255, 255, 255, 0.098) !important;
 }
 

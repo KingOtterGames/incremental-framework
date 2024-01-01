@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Formatter from 'utilities/Formatter'
 import { Button } from 'antd'
+import ProgressButton from 'shared/ProgressButton'
 
 const Demo = ({ state, dispatch, quit }) => {
     const slot = localStorage.getItem('slot')
@@ -71,6 +72,10 @@ const Demo = ({ state, dispatch, quit }) => {
             <Button type="primary" className="purchase" onClick={() => {}}>
                 Purchase
             </Button>
+            <br />
+            <ProgressButton percent={25} text={'Progress Button'} />
+            <ProgressButton percent={50} text={'Progress Button'} />
+            <ProgressButton percent={75} text={'Progress Button'} />
         </div>
     )
 }
