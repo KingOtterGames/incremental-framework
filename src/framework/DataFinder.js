@@ -145,7 +145,7 @@ const getEntitiesBySubtype = (entityType, type, subtype) => {
  * @returns
  */
 const getEntityByID = (entityType, id) => {
-    return window[entityValidation(entityType) + 'Data'].filter((e) => e.id === id)
+    return window[entityValidation(entityType) + 'Data'].find((e) => e.id === id)
 }
 
 const DataFinder = {

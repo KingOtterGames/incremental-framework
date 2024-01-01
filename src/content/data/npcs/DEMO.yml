@@ -1,5 +1,7 @@
 - id: 'Golden Retriever'
+  displayName: 'Golden Retriever (Debug)'
+  description: 'This is a golden retriever'
   type: 'pet'
   subtype: 'dogs'
   image: 'items/placeholder.png'
-  displayName: 'Golden Retriever (Debug)'
+  properties: null

@@ -1,15 +1,6 @@
 - id: 'apple'
-  type: 'resource'
-  subtype: 'fruits'
-  image: 'items/placeholder.png'
-  stackable: true
-  market:
-      sellable: true
-      currency: gold
-      value: 1000
   displayName: 'Apple (Debug)'
-
-- id: 'banana'
+  description: 'This is a apple'
   type: 'resource'
   subtype: 'fruits'
   image: 'items/placeholder.png'
@@ -18,4 +9,17 @@
       sellable: true
       currency: gold
       value: 1000
-  displayName: 'Banana (Debug)'
+  properties: null
+
+- id: 'banana_sword'
+  displayName: 'Banana Sword (Debug)'
+  description: 'This is a banana sword'
+  type: 'weapon'
+  subtype: ''
+  image: 'items/placeholder.png'
+  stackable: false
+  market:
+      sellable: true
+      currency: gold
+      value: 1000
+  properties: null

@@ -30,6 +30,9 @@ const add = (state, payload) => {
     // Get Item Information
     const metadata = DataFinder.getEntityByID('items', item)
 
+    // Check if valid item
+    if (!metadata) return state
+
     // Check if stackable
     const stackable = metadata.stackable
 
@@ -47,7 +50,7 @@ const add = (state, payload) => {
 }
 
 const remove = (state, payload) => {
-    const { item, quantity, instance = '' } = payload
+    const { item, quantity = 1, instance = '' } = payload
 
     // Get Inventory
     const inventory = state.player.inventory
@@ -55,8 +58,17 @@ const remove = (state, payload) => {
     // Get Item Information
     const metadata = DataFinder.getEntityByID('items', item)
 
+    // Check if valid item
+    if (!metadata) return state
+
     // Check if stackable
     const stackable = metadata.stackable
+
+    // Safety check if not stackable and no instance id
+    if (!stackable && instance === '') {
+        console.log('ERROR: Missing the instance id for an item removal')
+        return state
+    }
 
     // Check if the item already exists in the inventory
     const existingItem = inventory.find((i) => {
@@ -72,7 +84,7 @@ const remove = (state, payload) => {
         if (existingItem.quantity <= 0) {
             state.player.inventory = inventory.filter((i) => {
                 if (stackable) return i.item !== item
-                return i.item !== item && i.instance !== instance
+                return i.instance !== instance
             })
         }
     }

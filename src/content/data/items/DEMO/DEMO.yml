@@ -1,4 +1,6 @@
 - id: 'orange'
+  displayName: 'Orange (Debug)'
+  description: 'This is a orange'
   type: 'resource'
   subtype: 'fruits'
   image: 'items/placeholder.png'
@@ -7,4 +9,4 @@
       sellable: true
       currency: gold
       value: 1000
-  displayName: 'Orange (Debug)'
+  properties: null

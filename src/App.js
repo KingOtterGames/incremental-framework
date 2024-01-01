@@ -17,6 +17,8 @@ const App = () => {
             .then(() => {
                 DataFinder.load('npcs')
                     .then(() => {
+                        console.log('I: ', window.itemsData)
+                        console.log('N: ', window.npcsData)
                         setTimeout(() => setData(true), 1000)
                     })
                     .catch((error) => {
