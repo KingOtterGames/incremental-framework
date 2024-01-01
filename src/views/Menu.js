@@ -13,8 +13,6 @@ const Menu = () => {
     const [showCredits, setShowCredits] = useState(false)
     const navigate = useNavigate()
 
-    useEffect(() => {}, [])
-
     const isDemo = Manager.helpers.isDemo()
 
     return (

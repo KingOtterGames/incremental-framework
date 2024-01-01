@@ -149,14 +149,9 @@ app.whenReady().then(() => {
         }
     })
 
-    // Open Discord Link
-    electron.ipcMain.on('discord', () => {
-        electron.shell.openExternal('DISCORD LINK HERE')
-    })
-
-    // Open Youtube Link
-    electron.ipcMain.on('youtube', () => {
-        electron.shell.openExternal('YOUTUBE LINK HERE')
+    // Open Link
+    ipcMain.on('link', (event, link) => {
+        electron.shell.openExternal(link)
     })
 
     // Force Close when Closed

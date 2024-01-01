@@ -1,12 +1,8 @@
 const { ipcRenderer, contextBridge } = require('electron')
 contextBridge.exposeInMainWorld('electronAPI', {
-    discord: () => {
-        let event = ipcRenderer.send('discord')
-        return () => event.removeListener('discord')
-    },
-    youtube: () => {
-        let event = ipcRenderer.send('youtube')
-        return () => event.removeListener('youtube')
+    link: (link) => {
+        let event = ipcRenderer.send('link', link)
+        return () => event.removeListener('link')
     },
     toggle_fullscreen: () => {
         let event = ipcRenderer.send('toggle_fullscreen')
